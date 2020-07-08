@@ -1,0 +1,35 @@
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap";
+
+*{
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+body{
+    background:snow;
+}
+
+header{
+    padding:30px;
+    border:1px solid gray;
+    background: #333;
+}
+
+header div{
+    text-align: center;
+}
+
+header div a{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color:white;
+    font-size:18px;
+    line-height: 28px;
+    margin-left:30px;
+}
+
+header div a:hover{
+    color: tomato;
+    transition: color 700ms;
+}
