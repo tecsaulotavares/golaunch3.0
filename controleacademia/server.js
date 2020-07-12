@@ -4,8 +4,10 @@ const routes = require("./routes");
 
 const server = express();
 
-server.use(express.static('public'))
-server.use(routes); /*middleware - interceptar ponto A ao B  */
+/*middleware - interceptar ponto A ao B  */
+server.use(express.urlencoded({extended:true})) //extend: funciona o req.body 
+server.use(express.static('public')) 
+server.use(routes); 
 
 server.set("view engine","njk");
 
