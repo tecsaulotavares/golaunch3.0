@@ -2,19 +2,12 @@
   "instructors": [
     {
       "avatar_url": "http://google.com",
+      "birth": 316242241200000,
+      "created_at": 1594767719287,
+      "id": 1,
       "name": "SAULO TAVARES DE SOUSA",
-      "birth": "1991-04-27",
-      "gender": "M",
-      "services": "CROSSFIT",
-      "created_at": 1594514587687
-    },
-    {
-      "avatar_url": "http://google.com",
-      "name": "asdfasdff",
-      "birth": 1593648000000,
-      "gender": "M",
-      "services": "CROSSFIT",
-      "created_at": 1594514743340
+      "services": "musculação,crosfit",
+      "gender": "M"
     }
   ]
 }

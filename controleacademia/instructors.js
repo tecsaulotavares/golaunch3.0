@@ -1,6 +1,27 @@
 const fs = require('fs');
 const data = require('./data.json');
 
+// show
+exports.show = function(req, res){
+    const {id} = req.params;
+
+    const foundInstructor = data.instructors.find(function(instructor){
+        return instructor.id == id
+    })
+
+    if(!foundInstructor) return res.send("Instructors not found!");
+
+    const instructor = {
+        ...foundInstructor,
+        age:"",
+        gender:foundInstructor.gender,
+        services: foundInstructor.services.split(','),
+        created_at: ""
+    }
+
+    return res.render("instructors/show",{instructor})
+}
+
 
 // create
 exports.post = function(req, res){
@@ -12,10 +33,28 @@ exports.post = function(req, res){
         }
     }
 
-    req.body.birth = Date.parse(req.body.birth);
-    req.body.created_at = Date.now();
+    // desestruturando
+    let {
+            avatar_url, 
+            birth, 
+            name, 
+            services,
+            gender
+        } = req.body;
 
-    data.instructors.push(req.body);
+    birth = Date.parse(birth);
+    const created_at = Date.now();
+    const id = Number(data.instructors.length + 1)
+
+
+    data.instructors.push({avatar_url, 
+        birth, 
+        created_at, 
+        id, 
+        name, 
+        services,
+        gender
+    });
 
     fs.writeFile("data.json",JSON.stringify(data, null, 2), 
         function(err){
